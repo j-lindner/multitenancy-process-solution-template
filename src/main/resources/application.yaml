@@ -1,0 +1,15 @@
+# https://github.com/camunda-community-hub/spring-zeebe#configuring-camunda-platform-8-saas-connection
+# https://github.com/camunda-community-hub/spring-zeebe#additional-configuration-options
+
+# cluster
+zeebe.client.broker.gatewayAddress: my-url:443
+zeebe.client.cloud.auth-url: https://my-url:443/auth/realms/camunda-platform/protocol/openid-connect/token
+zeebe.client.cloud.client-id: zeebe
+zeebe.client.cloud.client-secret: EasySecret
+
+#multi-tenant related
+zeebe.client.default-tenant-id: <default>
+zeebe.client.default-job-worker-tenant-ids:
+  - <default>
+
+#zeebe.client.security.plaintext: false

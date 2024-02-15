@@ -1,8 +1,8 @@
 package org.example.camunda.process.solution.facade;
 
 import io.camunda.zeebe.client.ZeebeClient;
+import java.util.Map;
 import org.example.camunda.process.solution.ProcessConstants;
-import org.example.camunda.process.solution.ProcessVariables;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,7 +23,7 @@ public class ProcessController {
   }
 
   @PostMapping("/start")
-  public void startProcessInstance(@RequestBody ProcessVariables variables) {
+  public void startProcessInstance(@RequestBody Map<String, Object> variables) {
 
     LOG.info(
         "Starting process `" + ProcessConstants.BPMN_PROCESS_ID + "` with variables: " + variables);
@@ -40,7 +40,7 @@ public class ProcessController {
   public void publishMessage(
       @PathVariable String messageName,
       @PathVariable String correlationKey,
-      @RequestBody ProcessVariables variables) {
+      @RequestBody Map<String, Object> variables) {
 
     LOG.info(
         "Publishing message `{}` with correlation key `{}` and variables: {}",
